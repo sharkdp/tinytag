@@ -1,5 +1,4 @@
-tinytag
-=======
+# tinytag
 
 tinytag is a "URL" shortener for your filesystem. It creates tiny tags like `yB` for long path names and stores accordingly named symlinks in a central folder.
 
@@ -19,8 +18,7 @@ optional arguments:
   -r TAG, --remove TAG  remove a certain tinytag
 ```
 
-Example usage
-=============
+### Example usage
 
 <pre>
 $ tinytag "Documents/Long file name.txt" 
