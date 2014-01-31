@@ -69,7 +69,7 @@ def main():
 
         createLink(pname, tag)
 
-        print("The tag for '{}' is: '{}'".format(fname, tag))
+        print("Created tag \033[1m{}\033[0m for file '{}'".format(tag, fname))
 
     elif args.tag:
         tag = args.tag
@@ -78,13 +78,18 @@ def main():
         print("Removed tag \033[1m{}\033[0m for file '{}'".format(tag, fname))
 
     else:
-        print("List of tinytags:")
-        print("")
-
         tlist = listTags()
-        for tag in tlist:
-            fname = getFilename(tag)
-            print("\033[1m{}\033[0m:  {}".format(tag, fname))
+        if not tlist:
+            print("No tiny tags available")
+        else:
+            print("List of tinytags:")
+            print("")
+
+            for tag in tlist:
+                fname = getFilename(tag)
+                print("\033[1m{}\033[0m:  {}".format(tag, fname))
+
+    print("")
 
 
 if __name__ == "__main__":
