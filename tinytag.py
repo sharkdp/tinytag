@@ -4,11 +4,17 @@ import random
 import string
 import argparse
 
-tagpath = "/home/shark/.tinytag/"
+
+def tagPath():
+    tagpath = os.path.join(os.path.expanduser("~"), ".tinytag")
+    if not os.path.exists(tagpath):
+        os.mkdir(tagpath)
+
+    return tagpath
 
 
 def listTags():
-    return os.listdir(tagpath)
+    return os.listdir(tagPath())
 
 
 def randomSymbol():
@@ -35,7 +41,7 @@ def generateTag():
 
 
 def getSymlinkPath(tag):
-    return os.path.join(tagpath, tag)
+    return os.path.join(tagPath(), tag)
 
 
 def createLink(filename, tag):
