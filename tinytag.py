@@ -75,7 +75,7 @@ def main():
         tag = args.tag
         fname = getFilename(tag)
         os.unlink(getSymlinkPath(tag))
-        print("Removed tag '{}' for file '{}'".format(tag, fname))
+        print("Removed tag \033[1m{}\033[0m for file '{}'".format(tag, fname))
 
     else:
         print("List of tinytags:")
@@ -84,7 +84,7 @@ def main():
         tlist = listTags()
         for tag in tlist:
             fname = getFilename(tag)
-            print("{}:  {}".format(tag, fname))
+            print("\033[1m{}\033[0m:  {}".format(tag, fname))
 
 
 if __name__ == "__main__":
