@@ -8,6 +8,8 @@ A typical use case is to link a certain document in your filesystem to a handwri
 ```
 usage: tinytag [-h] [-l] [-r TAG] [filename]
 
+tinytag is a 'URL' shortener for your filesystem
+
 positional arguments:
   filename              create a new tinytag for the given file
 

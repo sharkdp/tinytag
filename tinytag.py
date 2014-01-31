@@ -29,7 +29,7 @@ def randomTag():
 
 
 def generateTag():
-    # TODO ...
+    # TODO: this will run forever if there are no tags left
     existing = listTags()
 
     tag = randomTag()
@@ -54,7 +54,9 @@ def getFilename(tag):
 
 
 def main():
-    parser = argparse.ArgumentParser(prog="tinytag")
+    parser = argparse.ArgumentParser(
+        prog="tinytag",
+        description="tinytag is a 'URL' shortener for your filesystem")
     group = parser.add_mutually_exclusive_group()
     group.add_argument("filename", nargs="?",
                        help="create a new tinytag for the given file",
@@ -83,7 +85,7 @@ def main():
         os.unlink(getSymlinkPath(tag))
         print("Removed tag \033[1m{}\033[0m for file '{}'".format(tag, fname))
 
-    else:
+    elif args.list:
         tlist = listTags()
         if not tlist:
             print("No tiny tags available")
@@ -95,7 +97,8 @@ def main():
                 fname = getFilename(tag)
                 print("\033[1m{}\033[0m:  {}".format(tag, fname))
 
-    print("")
+    else:
+        parser.print_help()
 
 
 if __name__ == "__main__":
